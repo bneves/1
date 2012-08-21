@@ -76,7 +76,7 @@
     </choose>
   </macro>
   <macro name="translator">
-    <text value="Traducao "/>
+    <text value="Trad. de "/>
     <names variable="translator" delimiter=", ">
       <name delimiter="; " sort-separator=" " delimiter-precedes-last="always">
         <name-part name="given" text-case="capitalize-first"/>
@@ -244,12 +244,12 @@
         <choose>
           <if is-numeric="edition">
             <group delimiter=" ">
-              <number variable="edition" form="numeric" suffix="."/>
+              <number variable="edition" form="numeric"/>
               <text term="edition" form="short" suffix="."/>
             </group>
           </if>
           <else>
-            <text variable="edition" suffix=" ed."/>
+            <text variable="edition" suffix=" ed"/>
           </else>
         </choose>
       </if>
@@ -296,6 +296,11 @@
       <text variable="ISBN" prefix="ISBN&#160;"/>
     </group>
   </macro>
+  <macro name="number-of-pages">
+    <group>
+      <text variable="number-of-pages" suffix=" p. "/>
+    </group>
+  </macro>
   <macro name="collection-title">
     <text variable="collection-title"/>
     <text variable="collection-number" prefix=" "/>
@@ -324,9 +329,9 @@
           <group>
             <text macro="author" suffix=" - "/>
             <text macro="title" suffix=". "/>
-            <text macro="translator" suffix=". "/>
             <text macro="edition" suffix=". "/>
             <text macro="publisher" suffix=". "/>
+			<text macro="number-of-pages"/>
             <text macro="locators"/>
 			<text macro="ISBN" suffix=". "/>
           </group>
